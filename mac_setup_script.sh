@@ -22,14 +22,14 @@ fi
 echo "Creating $SSH_DIR if missing..."
 mkdir -p "$SSH_DIR"
 chmod 700 "$SSH_DIR"
-chown "$USERNAME":"$USERNAME" "$SSH_DIR"
+chown "$USERNAME":"staff" "$SSH_DIR"
 
 # Download public key and append to authorized_keys
 echo "Adding public key to authorized_keys..."
 curl -fsSL "$PUBKEY_URL" >> "$AUTH_KEYS"
 
 chmod 600 "$AUTH_KEYS"
-chown "$USERNAME":"$USERNAME" "$AUTH_KEYS"
+chown "$USERNAME":"staff" "$AUTH_KEYS"
 
 echo "Public key deployed successfully."
 echo ""
